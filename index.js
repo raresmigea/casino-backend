@@ -11,7 +11,7 @@ const getUsers = async () => {
   const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
   return data.map(user => ({
     ...user,
-    wins: Math.floor(Math.random() * 100), // Assign random wins
+    wins: Math.floor(Math.random() * 100),
   }));
 };
 
@@ -25,9 +25,8 @@ app.get('/api/leaderboard', async (req, res) => {
   }
 });
 
-// Add a default route to handle the root URL
 app.get('/', (req, res) => {
-  res.send('Welcome to the Casino Leaderboard API. Use /api/leaderboard to get the top 10 users.');
+  res.send('Hello world!');
 });
 
 app.listen(PORT, () => {
